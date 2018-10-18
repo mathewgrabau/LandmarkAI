@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,20 @@ namespace LandmarkAI
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // Must request a file from there
+            var dialog = new OpenFileDialog();
+
+            var result = dialog.ShowDialog();
+            if (result == true)
+            {
+                string fileName = dialog.FileName;
+                // Ensure that we can then upload the information here.
+            }
+
         }
     }
 }
