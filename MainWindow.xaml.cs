@@ -31,11 +31,16 @@ namespace LandmarkAI
             // Must request a file from there
             var dialog = new OpenFileDialog();
 
+            // Filter setup (vertical bar is what actually matters
+            dialog.Filter = "Image files (*.png; *.jpg)|*.png;*.jpg;*.jpeg|All files (*.*)|*.*";
+            dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
             var result = dialog.ShowDialog();
             if (result == true)
             {
                 string fileName = dialog.FileName;
                 // Ensure that we can then upload the information here.
+                selectedImage.Source = new BitmapImage(new Uri(fileName));
             }
 
         }
